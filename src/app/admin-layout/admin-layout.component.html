@@ -1,0 +1,16 @@
+<div ngClass="main-container" fxLayout="column" fxLayoutAlign="center">
+  <app-header (sideNavtoogle)="sideNavToggle(snav)" (logout)="signOut($event)"></app-header>
+  <mat-sidenav-container autosize ngClass="wrapper">
+    <mat-sidenav #snav ngClass="sidenav" mode="side" opened>
+      <app-sidenav></app-sidenav>
+    </mat-sidenav>
+    <mat-sidenav-content ngClass="page-wrapper">
+      <div ngClass="page-content">
+        <router-outlet></router-outlet>
+      </div>
+      <footer>
+        <p>Copyright Karvy Private Wealth &copy; 2019</p>
+      </footer>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

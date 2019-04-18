@@ -1,0 +1,76 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row fxLayout="row" fxLayoutAlign="center center">
+    <span>Call Metting</span>
+    <span fxFlex></span>
+    <button mat-icon-button color="default" (click)="openAddLead()">
+      <mat-icon ngClass="mdi mdi-plus-circle mdi-24px"></mat-icon>
+    </button>
+    <button mat-icon-button color="default">
+      <mat-icon ngClass="mdi mdi-filter mdi-24px"></mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-card>
+  <mat-card-content>
+    <div *ngIf="dataSource">
+      <table mat-table [dataSource]="dataSource">
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Lead Name</th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <!-- Date Column -->
+        <ng-container matColumnDef="callStatus">
+          <th mat-header-cell *matHeaderCellDef>Call Status</th>
+          <td mat-cell *matCellDef="let element"> {{element.callStatus}} </td>
+        </ng-container>
+
+        <!-- Start Time Column -->
+        <ng-container matColumnDef="mobile">
+          <th mat-header-cell *matHeaderCellDef>Mobile</th>
+          <td mat-cell *matCellDef="let element"> {{element.mobile}} </td>
+        </ng-container>
+
+        <!-- Status Column -->
+        <ng-container matColumnDef="leadOwner">
+          <th mat-header-cell *matHeaderCellDef>Lead Owner</th>
+          <td mat-cell *matCellDef="let element">
+            <ng-container *ngIf="element.leadOwner; else defaultValue1">
+              {{element.leadOwner}}
+            </ng-container>
+          </td>
+          <ng-template #defaultValue1>
+            NA
+          </ng-template>
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let element; let index=index" (click)="$event.stopPropagation()">
+            <ng-container *ngIf="isAdmin; else defaultValue2">
+              <button mat-icon-button color="primary" (click)="edit(index)"><span class="mdi mdi-square-edit-outline mdi-24px"></span></button>
+              <button mat-icon-button color="accent" (click)="potential(element)"><span class="mdi mdi-check mdi-24px"></span></button>
+              <button mat-icon-button color="warn" (click)="delete(element)"><span class="mdi mdi-close mdi-24px"></span></button>
+            </ng-container>
+          </td>
+          <ng-template #defaultValue2>
+            <button mat-icon-button color="primary" (click)="edit(index)"><span class="mdi mdi-square-edit-outline mdi-24px"></span></button>
+          </ng-template>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;let index=index;" (click)="selectedRow(index)"></tr>
+      </table>
+    </div>
+    <div class="no_data" [ngClass]="{'hide':dataSource!=null}">
+      Loading please wait!
+    </div>
+    <div class="no_data" [ngClass]="{'hide':!(dataSource!=null && dataSource.data.length==0)}">
+      No Records Found!
+    </div>
+    <mat-paginator #paginator [length]="length" [pageSize]="10" (page)="pageEvent = getServerData($event)"
+      showFirstLastButtons></mat-paginator>
+  </mat-card-content>
+</mat-card>

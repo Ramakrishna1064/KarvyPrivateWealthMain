@@ -1,0 +1,10 @@
+
+.button-row{
+    position: relative;
+    width: 100%;
+    .right-side-buttons-group{
+        position: absolute;
+        right: 0;
+        padding: 10px;
+    }
+}

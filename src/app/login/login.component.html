@@ -1,0 +1,40 @@
+<section fxLayout="column" fxLayoutAlign="center center" ngClass="kpw-login">
+  <div>
+    <img src="assets/images/logo.jpg" ngClass="kpw-logo">
+  </div>
+  <div>
+    <mat-card>
+      <mat-card-content>
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+          <div fxLayout="column" fxLayoutGap="50px" fxLayoutAlign="space-between stretch">
+            <div fxFlex>
+              <h1>CRM Login</h1>
+
+              <mat-form-field appearance="outline">
+                <mat-label>User Name</mat-label>
+                <input type="text" matInput placeholder="User Name" ngModel name="userName" required #userInput="ngModel">
+                <mat-error *ngIf="userInput.hasError('required')">Field must not be empty.</mat-error>
+                <!-- <mat-error *ngIf="!userlInput.hasError('required')">Username is invalid.</mat-error> -->
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" hintLabel="Should be at least 6 characters long.">
+                <mat-label>Password</mat-label>
+                <input type="password" matInput placeholder="Password" ngModel name="password" required minlength="6"
+                  #pwInput="ngModel">
+                <mat-hint align="end">{{ pwInput.value?.length }} / 6</mat-hint>
+                <mat-error *ngIf="pwInput.hasError('minlength')">Has to be at least 6 characters long.</mat-error>
+                <mat-error *ngIf="pwInput.hasError('required')">Field must not be empty.</mat-error>
+              </mat-form-field>
+
+              <mat-checkbox color="primary">Remember Me</mat-checkbox>
+            </div>
+            <div fxFlex fxLayoutAlign="center center">
+              <button type="submit" mat-raised-button color="primary" [disabled]="f.invalid">Login</button>
+            </div>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div style="height:20vh;"></div>
+</section>

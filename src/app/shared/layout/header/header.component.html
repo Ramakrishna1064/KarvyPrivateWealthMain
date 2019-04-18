@@ -1,0 +1,26 @@
+<mat-toolbar fxLayout="row" fxLayoutAlign="center center" ngClass="topbar">
+    <a ngClass="brand-logo"><img src="assets/images/logo.jpg" ngClass="logo-full"></a>
+      <button mat-icon-button (click)="sideNavToggle()">
+        <mat-icon><span class="mdi mdi-menu mdi-24px"></span></mat-icon>
+      </button>
+    <span fxFlex></span>
+    <div>
+      <button mat-icon-button [matMenuTriggerFor]="profileMenu">
+        <mat-icon><span class="mdi mdi-account-circle mdi-24px"></span></mat-icon>
+      </button>
+      <mat-menu #profileMenu="matMenu">
+        <button mat-menu-item>
+          <mat-icon><span class="mdi mdi-account-circle mdi-24px"></span></mat-icon>
+          <span>Profile</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon><span class="mdi mdi-cogs mdi-24px"></span></mat-icon>
+          <span>Settings</span>
+        </button>
+        <button mat-menu-item (click)="signOut()">
+          <mat-icon><span class="mdi mdi-logout mdi-24px"></span></mat-icon>
+          <span>Sign Out</span>
+        </button>
+      </mat-menu>
+    </div>
+</mat-toolbar>

@@ -1,0 +1,171 @@
+@import 'default/reset.scss';
+@import 'default/variables.scss';
+
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  height: 100%;
+  color: #8f999e;
+  font: {
+    family: $font-family-serif;
+    size: 16px;
+    weight: 300;
+  }
+  line-height: 1.5em;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
+  font-family: $font-family-sans-serif;
+  font-weight: 500;
+  line-height: 1.5em;
+}
+
+
+h1, .h1 {
+    font-size: $font-size-h1;
+    line-height: 1.15em;
+}
+h2, .h2{
+    font-size: $font-size-h2;
+}
+h3, .h3{
+    font-size: $font-size-h3;
+    line-height: 1.4em;
+    margin: 20px 0 10px;
+}
+h4, .h4{
+    font-size: $font-size-h4;
+    line-height: 1.4em;
+    font-weight: 300;
+}
+h5, .h5 {
+    font-size: $font-size-h5;
+    line-height: 1.4em;
+    margin-bottom: 15px;
+}
+h6, .h6{
+    font-size: $font-size-h6;
+    text-transform: uppercase;
+    font-weight: $font-weight-bold;
+}
+.p-0 {
+  padding: 0 !important;
+}
+.mat-raised-button {
+  font: {
+    size: 1rem;
+  }
+  min-width: 100px !important;
+  line-height: 40px !important;
+}
+table {
+  width: 100%;
+}
+td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
+  vertical-align: middle;
+  width: 22%;
+}
+
+
+.mat-column-actions .mat-mini-fab {
+  margin-right: 5px;
+}
+
+
+.topbar {
+  background: $white;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.08);
+  .brand-logo {
+    margin: 8px 15px 0px 0;
+      img.logo-full {
+        width: 260px;
+      }
+  }
+}
+.mat-menu-item .mat-icon {
+    margin: 1px 10px 0 0 !important;
+    vertical-align: top !important;
+}
+.wrapper {
+  background: $grey;
+  .sidenav {
+    width: 240px;
+    .mat-nav-list {
+      .mat-list-item {
+        font : {
+          size: 16px;
+          weight: 500;
+        }
+        color: #8f999e;
+        .mat-list-item-content {
+          margin: 0 15px;
+          padding: 0 16px;
+        }
+        &.active {
+            .mat-list-item-content {
+            background: $dark-blue;
+            color: $white;
+            border-radius: 4px;
+          }
+        }
+        .mat-icon {
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+  .page-wrapper {
+    height: calc(100vh - 64px);
+    .page-content {
+      padding :20px;
+      min-height: calc(100vh - 149px);
+    }
+    .db-activites {
+      .mat-tab-list {
+        .mat-tab-label {
+          font-size: 16px;
+          .mat-icon {
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+    footer {
+      padding: 10px 20px;
+      background: #fff;
+      border-top: 1px solid rgba(0,0,0,.12);
+    }
+  }
+}
+
+/* Add application styles & imports to this file! */
+#toast-container > div {
+  opacity:1;
+}
+
+.no_data{
+  text-align: center;
+  color: red;
+  margin-top: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.hide{
+  display: none;
+}
+
+
+//Matertial dialog styles
+.mat-dialog-content {
+  overflow-y: hidden !important;
+}
+
+.mat-dialog-content {
+  overflow-x: hidden !important;
+}
+

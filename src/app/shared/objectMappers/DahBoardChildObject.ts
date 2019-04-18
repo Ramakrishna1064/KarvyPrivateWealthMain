@@ -1,0 +1,35 @@
+export interface DashBoardChildObject {
+  meetingDate: string;
+  description: string;
+  note: string;
+  startTime: string;
+  endTime: string;
+  version: string;
+  name: string;
+  createdDate: string;
+  updatedDate: string;
+  createdBy: string;
+  updatedBy: string;
+  webServiceCallMeetingIdentifier: string;
+  calendarTriggerCallMeetingIdentifier: string;
+  potentialId: number;
+  sourceId: number;
+  statusId: number;
+  travelFrom: string;
+  travelTo: string;
+  modeOfTravel: string;
+  rate: number;
+  purpose: string;
+  amount: number;
+  travelUpdatedDate: string;
+  ownerId: string;
+  leadCustomerId: number;
+  leadName: string;
+  leadMobileNumber: string;
+  leadAddress: string;
+  residential: string;
+  statusName: string;
+  statusValue: string;
+  type: string;
+  campaignId: number;
+}
